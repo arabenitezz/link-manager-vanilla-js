@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Link Manager</h1>
+
+    <section id="addLinkSection">
+      <h2>Añadir nuevo enlace</h2>
+      <form id="addLinkForm">
+        <input type="text" id="title" placeholder="Título" required />
+        <input type="url" id="url" placeholder="URL" required />
+        <input type="text" id="tags" placeholder="Etiquetas (separadas por comas)" />
+        <button type="submit">Añadir enlace</button>
+      </form>
+    </section>
+
+    <section id="linksContainer">
+      <h2>Lista de enlaces</h2>
+      <div id="linksList">
+        <!-- Los enlaces se renderizan aquí dinámicamente -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Sección de detalles del enlace -->
+  <main id="detailsPage" style="display: none;">
+    <section id="linkDetails">
+      <h2 id="linkTitle"></h2>
+      <p><strong>URL:</strong> <a id="linkUrl" href="#" target="_blank"></a></p>
+      <p><strong>Etiquetas:</strong> <span id="linkTags"></span></p>
+      <p><strong>Votos:</strong> <span id="linkVotes"></span></p>
+      <button id="voteUp">👍</button>
+      <button id="voteDown">👎</button>
+    </section>
+
+    <section id="commentsSection">
+      <h2>Comentarios</h2>
+      <div id="commentsContainer">
+        <!-- Los comentarios se renderizan aquí dinámicamente -->
+      </div>
+      <form id="addCommentForm">
+        <textarea id="commentText" placeholder="Escribe tu comentario aquí" required></textarea>
+        <button type="submit">Añadir comentario</button>
+      </form>
+    </section>
+
+    <button id="backToHome">Volver al inicio</button>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
