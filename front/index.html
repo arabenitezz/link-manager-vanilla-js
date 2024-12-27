@@ -3,55 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Link Manager</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Link Manager Pro</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/front/styless.css">
 </head>
 <body>
-  <header>
-    <h1>Link Manager</h1>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <i class="fas fa-link"></i>
+        <span>Link Manager Pro</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#" class="nav-link">Categories</a>
+        <a href="#" class="nav-link">Profile</a>
+      </nav>
+    </div>
+  </header>
 
-    <section id="addLinkSection">
-      <h2>Añadir nuevo enlace</h2>
-      <form id="addLinkForm">
+  <main class="main-content">
+    <section class="intro-section">
+      <div class="intro-content">
+        <h2 class="section-title-info">
+          ¡Bienvenido a Link Manager Pro!
+        </h2>
+        <img src="/static/thumbs-up-network-circuit-board-link-connection-technology.jpg">
+        <div class="intro-text">
+          <p>Link Manager Pro te permite organizar y compartir tus enlaces favoritos de manera eficiente. Guarda, categoriza y comenta los recursos más importantes para ti.</p>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <i class="fas fa-tags"></i>
+              <span>Organiza con etiquetas</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-comments"></i>
+              <span>Comenta y comparte</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-vote-yea"></i>
+              <span>Vota los mejores enlaces</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="addLinkSection" class="section">
+      <h2 class="section-title">
+        <i class="fas fa-plus-circle"></i>
+        Añadir nuevo enlace
+      </h2>
+      <form id="addLinkForm" class="form-container">
         <input type="text" id="title" placeholder="Título" required />
         <input type="url" id="url" placeholder="URL" required />
         <input type="text" id="tags" placeholder="Etiquetas (separadas por comas)" />
-        <button type="submit">Añadir enlace</button>
+        <button type="submit">
+          <i class="fas fa-plus"></i>
+          Añadir enlace
+        </button>
       </form>
     </section>
 
-    <section id="linksContainer">
-      <h2>Lista de enlaces</h2>
-      <div id="linksList">
-        <!-- Los enlaces se renderizan aquí dinámicamente -->
+    <section id="linksContainer" class="section">
+      <h2 class="section-title">
+        <i class="fas fa-list"></i>
+        Lista de enlaces
+      </h2>
+      <div id="linksList" class="links-grid">
+        <!-- Links rendered dynamically -->
       </div>
     </section>
   </main>
 
-  <!-- Sección de detalles del enlace -->
-  <main id="detailsPage" style="display: none;">
-    <section id="linkDetails">
-      <h2 id="linkTitle"></h2>
-      <p><strong>URL:</strong> <a id="linkUrl" href="#" target="_blank"></a></p>
-      <p><strong>Etiquetas:</strong> <span id="linkTags"></span></p>
-      <p><strong>Votos:</strong> <span id="linkVotes"></span></p>
-      <button id="voteUp">👍</button>
-      <button id="voteDown">👎</button>
+  <main id="detailsPage" class="details-page" style="display: none;">
+    <section id="linkDetails" class="details-section">
+      <h2 id="linkTitle" class="details-title"></h2>
+      <p class="details-info"><strong>URL:</strong> <a id="linkUrl" href="#" target="_blank"></a></p>
+      <p class="details-info"><strong>Etiquetas:</strong> <span id="linkTags"></span></p>
+      <p class="details-info"><strong>Votos:</strong> <span id="linkVotes"></span></p>
+      <div class="vote-buttons">
+        <button id="voteUp" class="vote-btn"><i class="fas fa-thumbs-up"></i></button>
+        <button id="voteDown" class="vote-btn"><i class="fas fa-thumbs-down"></i></button>
+      </div>
     </section>
 
-    <section id="commentsSection">
-      <h2>Comentarios</h2>
-      <div id="commentsContainer">
-        <!-- Los comentarios se renderizan aquí dinámicamente -->
+    <section id="commentsSection" class="comments-section">
+      <h2 class="section-title">
+        <i class="fas fa-comments"></i>
+        Comentarios
+      </h2>
+      <div id="commentsContainer" class="comments-container">
+        <!-- Comments rendered dynamically -->
       </div>
-      <form id="addCommentForm">
+      <form id="addCommentForm" class="comment-form">
         <textarea id="commentText" placeholder="Escribe tu comentario aquí" required></textarea>
-        <button type="submit">Añadir comentario</button>
+        <button type="submit">
+          <i class="fas fa-paper-plane"></i>
+          Añadir comentario
+        </button>
       </form>
     </section>
 
-    <button id="backToHome">Volver al inicio</button>
+    <button id="backToHome" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      Volver al inicio
+    </button>
   </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; <span id="current-year"></span> Link Manager Pro</p>
+      <div class="footer-links">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
