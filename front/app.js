@@ -71,9 +71,8 @@ function createLinkElement(link) {
     currentLinkId = link._id;
     try {
       const linkDetails = await api.getLinkDetails(link._id);
+      showDetailsView();
       renderLinkDetails(linkDetails);
-      elements.detailsPage.style.display = 'block';
-      elements.mainPage.style.display = 'none';
     } catch (error) {
       console.error('Error al obtener detalles:', error);
     }
@@ -127,8 +126,7 @@ elements.addLinkForm.addEventListener('submit', async (e) => {
 });
 
 elements.backToHomeBtn.addEventListener('click', () => {
-  elements.detailsPage.style.display = 'none';
-  elements.mainPage.style.display = 'block';
+  showMainView();
   currentLinkId = null;
 });
 
@@ -162,13 +160,22 @@ elements.addCommentForm.addEventListener('submit', async (e) => {
 // Obtiene el año actual y lo asigna al elemento con ID 'current-year'
 document.getElementById('current-year').textContent = new Date().getFullYear();
 
+// Añadir estas nuevas funciones para manejar las vistas
+function showDetailsView() {
+  elements.detailsPage.classList.remove('hidden');
+  elements.mainPage.classList.add('hidden');
+}
+
+function showMainView() {
+  elements.detailsPage.classList.add('hidden');
+  elements.mainPage.classList.remove('hidden');
+}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     renderLinks(await api.fetchLinks());
-    elements.detailsPage.style.display = 'none';
-    elements.mainPage.style.display = 'block';
+    showMainView();
   } catch (error) {
     console.error('Error al cargar enlaces:', error);
   }
