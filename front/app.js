@@ -20,7 +20,7 @@ let currentLinkId = null;
 const api = {
   async fetchLinks(tags = '') {
     const queryString = tags ? `?tags=${tags}` : '';
-    const response = await fetc(`${API_BASE_URL}/links${queryString}`);
+    const response = await fetch(`${API_BASE_URL}/links${queryString}`);
     return response.json();
   },
 
@@ -159,6 +159,18 @@ elements.addCommentForm.addEventListener('submit', async (e) => {
     } catch (error) {
       console.error('Error al añadir comentario:', error);
     }
+  }
+});
+
+// Add this event handler with the other event handlers
+elements.searchForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const searchTags = elements.tagsSearch.value;
+  try {
+    const links = await api.fetchLinks(searchTags);
+    renderLinks(links);
+  } catch (error) {
+    console.error('Error al buscar enlaces:', error);
   }
 });
 
