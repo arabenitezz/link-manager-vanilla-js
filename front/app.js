@@ -8,7 +8,9 @@ const elements = {
   detailsPage: document.getElementById('detailsPage'),
   mainPage: document.querySelector('main:not(#detailsPage)'),
   backToHomeBtn: document.getElementById('backToHome'),
-  addCommentForm: document.getElementById('addCommentForm')
+  addCommentForm: document.getElementById('addCommentForm'),
+  searchForm: document.getElementById('searchForm'),
+  tagsSearch: document.getElementById('tagsSearch')
   
 };
 
@@ -16,8 +18,9 @@ let currentLinkId = null;
 
 // API Functions
 const api = {
-  async fetchLinks(tag = '') {
-    const response = await fetch(`${API_BASE_URL}/links${tag ? `?tag=${tag}` : ''}`);
+  async fetchLinks(tags = '') {
+    const queryString = tags ? `?tags=${tags}` : '';
+    const response = await fetc(`${API_BASE_URL}/links${queryString}`);
     return response.json();
   },
 
@@ -51,8 +54,10 @@ const api = {
       body: JSON.stringify({ linkId, text })
     });
     return response.json();
-  }
+  },
+
 };
+
 
 // UI Functions
 function createLinkElement(link) {
