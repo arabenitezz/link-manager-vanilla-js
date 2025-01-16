@@ -1,7 +1,7 @@
 /* Variables */
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
+    --primary-color: #C34545;
+    --secondary-color: #aa2c2c;
     --background-color: #f8fafc;
     --text-color: #1e293b;
     --gray-light: #e2e8f0;
@@ -10,6 +10,7 @@
     --danger-color: #ef4444;
     --border-radius: 8px;
     --transition: all 0.3s ease;
+    --primary-color-rgb: 52, 152, 219;
   }
   
   /* Reset y estilos base */
@@ -80,29 +81,34 @@
   
   /* Intro section */
   .intro-section {
-    background-color: white;
-    border-radius: var(--border-radius);
-    padding: 2rem;
+    background-color: transparent;
     margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
+    position: relative;
   }
   
   .intro-section img {
     width: 100%;
     height: auto;
-    border-radius: var(--border-radius);
-    margin: 1rem 0;
+    border-radius: 0;
+    margin: 0;
+    object-fit: cover;
   }
   
-  .section-title-info {
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  .intro-content {
+    position: relative;
   }
   
   .intro-text {
-    color: var(--text-color);
-    font-size: 1.1rem;
+    color: white;
+    font-size: 1.2rem;
+    background-color: rgba(195, 69, 69, 0.9);
+    padding: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
   }
   
   .feature-grid {
@@ -116,14 +122,20 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 1rem;
-    background-color: var(--background-color);
+    padding: 1.5rem;
+    background: linear-gradient(145deg, var(--primary-color), var(--accent-color));
     border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+    color:var(--text-color);
   }
   
-  .feature-item i {
-    color: var(--primary-color);
-    font-size: 1.25rem;
+  .feature-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-item span {
+    font-weight: 600;
+    font-size: 1.1rem;
   }
   
   /* Forms */
