@@ -1,5 +1,5 @@
 // app.js
-const API_BASE_URL = 'link-manager-backend-production.up.railway.app';
+const API_BASE_URL = 'https://link-manager-backend-production.up.railway.app';
 
 // DOM Elements
 const elements = {
