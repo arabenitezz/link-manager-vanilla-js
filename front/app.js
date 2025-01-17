@@ -20,7 +20,7 @@ let currentLinkId = null;
 const api = {
   async fetchLinks(tags = '') {
     const queryString = tags ? `?tags=${tags}` : '';
-    const response = await fetch(`${API_BASE_URL}/links${queryString}`);
+    const response = await fetch('https://link-manager-backend-production.up.railway.app/api');
     return response.json();
   },
 
