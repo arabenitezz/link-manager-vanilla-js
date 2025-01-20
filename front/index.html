@@ -100,7 +100,7 @@
       <p class="details-info"><strong>URL:</strong> <a id="linkUrl" href="#" target="_blank"></a></p>
       <button id="copyEnlace" class="vote-btn" onclick="copiarContenido()" >Copiar enlace</button>
       <script>
-        let texto = document.getElementById('miTexto').innerHTML;
+        let texto = document.getElementById('linkUrl').innerHTML;
         const copiarContenido = async () => {
           try {
             await navigator.clipboard.writeText(texto);
