@@ -98,18 +98,25 @@
     <section id="linkDetails" class="details-section">
       <h2 id="linkTitle" class="details-title"></h2>
       <p class="details-info"><strong>URL:</strong> <a id="linkUrl" href="#" target="_blank"></a></p>
-      <button id="copyEnlace" class="vote-btn" onclick="copiarContenido()" >Copiar enlace</button>
+      <button id="copyEnlace" class="vote-btn" onclick="copiarEnlace()">Copiar enlace</button>
+
       <script>
-        let texto = document.getElementById('linkUrl').innerHTML;
-        const copiarContenido = async () => {
-          try {
-            await navigator.clipboard.writeText(texto);
-            console.log('Contenido copiado al portapapeles');
-          } catch (err) {
-            console.error('Error al copiar: ', err);
+        function copiarEnlace() {
+          const url = document.getElementById('linkUrl').href;  // Obtener la URL del enlace
+          if (url) {
+            navigator.clipboard.writeText(url)
+              .then(() => {
+                console.log('Enlace copiado al portapapeles');
+              })
+              .catch(err => {
+                console.error('Error al copiar: ', err);
+              });
+          } else {
+            console.error('No se pudo obtener el enlace');
           }
         }
       </script>
+
       <p class="details-info"><strong>Etiquetas:</strong> <span id="linkTags"></span></p>
       <p class="details-info"><strong>Votos:</strong> <span id="linkVotes"></span></p>
       <div class="vote-buttons">

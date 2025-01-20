@@ -46,17 +46,6 @@ const api = {
     return response.json();
   },
 
-  async copiarContenido() {
-    try {
-      await navigator.clipboard.writeText('Este es el texto a copiar');
-      console.log('Contenido copiado al portapapeles');
-      /* Resuelto - texto copiado al portapapeles con éxito */
-    } catch (err) {
-      console.error('Error al copiar: ', err);
-      /* Rechazado - fallo al copiar el texto al portapapeles */
-    }
-  },
-
   async addComment(linkId, text) {
     const response = await fetch(`${API_BASE_URL}/comments`, {
       method: 'POST',
