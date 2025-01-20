@@ -99,6 +99,17 @@
       <h2 id="linkTitle" class="details-title"></h2>
       <p class="details-info"><strong>URL:</strong> <a id="linkUrl" href="#" target="_blank"></a></p>
       <button id="copyEnlace" class="vote-btn" onclick="copiarContenido()" >Copiar enlace</button>
+      <script>
+        let texto = document.getElementById('miTexto').innerHTML;
+        const copiarContenido = async () => {
+          try {
+            await navigator.clipboard.writeText(texto);
+            console.log('Contenido copiado al portapapeles');
+          } catch (err) {
+            console.error('Error al copiar: ', err);
+          }
+        }
+      </script>
       <p class="details-info"><strong>Etiquetas:</strong> <span id="linkTags"></span></p>
       <p class="details-info"><strong>Votos:</strong> <span id="linkVotes"></span></p>
       <div class="vote-buttons">
